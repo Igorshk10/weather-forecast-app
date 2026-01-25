@@ -3,21 +3,26 @@ import {useEffect, useState} from "react";
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import Main from "./pages/Main";
 import Favourite from "./pages/Favourite";
-import logo from './img/weather-news.png'
 import Header from "./components/Header/Header";
+import {ThemeContext} from "./context";
+import './styles/theme.module.css'
 
 
 function App() {
-    const [message, setMessage] = useState('');
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        fetch("/api/hello")
-            .then(res => res.json())
-            .then(data => setMessage(data.message));
+        const savedTheme = localStorage.getItem("theme") || "light"; // дефолтна тема dark
+        setTheme(savedTheme);
     }, []);
 
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+
     return (
-        <div className="App">
+        <ThemeContext.Provider value={{theme, setTheme}}>
             <BrowserRouter>
                 <Header />
                 <Routes>
@@ -25,7 +30,8 @@ function App() {
                     <Route path="/favourite" element={<Favourite />}/>
                 </Routes>
             </BrowserRouter>
-        </div>
+        </ThemeContext.Provider>
+
     );
 }
 

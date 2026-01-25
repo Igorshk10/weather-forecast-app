@@ -1,0 +1,14 @@
+:root {
+    --main-color: #139ff8 ;
+    --logo-font :"Bungee", sans-serif ;
+    --main-font : "M PLUS Rounded 1c", sans-serif;
+    --second-color: #636363;
+}
+
+
+[data-theme="dark"] {
+    --main-color: #80424b;
+    --logo-font :"Bungee", sans-serif ;
+    --main-font : "M PLUS Rounded 1c", sans-serif;
+    --second-color: #000000;
+}

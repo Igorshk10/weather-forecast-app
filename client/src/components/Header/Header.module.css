@@ -1,6 +1,5 @@
-
 .logo{
-    font-family: "Bungee", sans-serif;
+    font-family: var(--logo-font);
     font-weight: 400;
     font-style: normal;
     margin-left: 50px;
@@ -16,7 +15,7 @@
     width: 0;
     height: 4px;
     border-radius: 5px;
-    background-color: #139ff8;
+    background-color: var(--main-color);
     transition: width 0.5s ease;
 }
 
@@ -25,7 +24,7 @@
 }
 
 .accent{
-    color: #139ff8;
+    color: var(--main-color);
 }
 
 .header{
@@ -38,8 +37,8 @@
 }
 
 .header hr{
-    height:50px;
-    width: 4px;
+    height:40px;
+    width: 3px;
     margin: 5px 25px;
     color: black;
     background-color: black;
@@ -48,11 +47,11 @@
 }
 
 .link {
-    color: #636363;
+    color: var(--second-color);
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
-    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-family: var(--main-font);
     font-weight: 500;
     font-style: normal;
     margin: 5px 25px;
@@ -61,8 +60,39 @@
     transition: all 0.3s ease;
 }
 
-.link:hover {
-    background-color: #139ff8;
-    color: #ffffff;
-    font-weight: 700;
+.link:hover{
+    color: var(--main-color);
+}
+
+.settings{
+    margin-left: auto;
+    margin-right: 50px;
+    display: flex;
+}
+
+.settings hr{
+    height: 30px;
+    width: 1px;
+    margin: 5px 15px;
+    color: var(--second-color);
+    background-color: var(--second-color);
+    border-radius: 5px;
+    padding: 0;
+}
+
+.settings button{
+    background-color: transparent;
+    color: var(--second-color);
+    font-family: var(--main-font);
+    font-weight: 500;
+    font-style: normal;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.settings button:hover{
+    color: var(--main-color);
 }
