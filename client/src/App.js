@@ -4,35 +4,28 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import Main from "./pages/Main";
 import Favourite from "./pages/Favourite";
 import Header from "./components/Header/Header";
-import {ThemeContext} from "./context";
+import {ThemeProvider} from "./context/ThemeContext";
 import './styles/theme.module.css'
+import SearchBar from "./components/SearchBar/SearchBar";
+import {LanguageProvider} from "./context/LanguageContext";
 
 
 function App() {
-    const [theme, setTheme] = useState('light');
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") || "light"; // дефолтна тема dark
-        setTheme(savedTheme);
-    }, []);
-
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-    }, [theme]);
-
     return (
-        <ThemeContext.Provider value={{theme, setTheme}}>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Main />}/>
-                    <Route path="/favourite" element={<Favourite />}/>
-                </Routes>
-            </BrowserRouter>
-        </ThemeContext.Provider>
-
+        <LanguageProvider>
+            <ThemeProvider>
+                <BrowserRouter>
+                    <Header />
+                    <SearchBar />
+                    <Routes>
+                        <Route path="/" element={<Main />} />
+                        <Route path="/favourite" element={<Favourite />} />
+                    </Routes>
+                </BrowserRouter>
+            </ThemeProvider>
+        </LanguageProvider>
     );
 }
+
 
 export default App;

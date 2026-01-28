@@ -3,12 +3,18 @@
     --logo-font :"Bungee", sans-serif ;
     --main-font : "M PLUS Rounded 1c", sans-serif;
     --second-color: #636363;
+    --input-bg : #f3f3f3;
+    --bg : #ffffff;
+    --b-w : #000000;
 }
 
 
 [data-theme="dark"] {
-    --main-color: #80424b;
+    --main-color: #139ff8;
     --logo-font :"Bungee", sans-serif ;
     --main-font : "M PLUS Rounded 1c", sans-serif;
-    --second-color: #000000;
+    --second-color: #ffffff;
+    --bg : #1b1b1b;
+    --input-bg : #ffffff;
+    --b-w : #ffffff;
 }
